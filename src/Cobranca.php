@@ -79,12 +79,12 @@ class Cobranca {
     }
 
     // Confirmação em dinheiro
-    public function confirmacao($id, $dados){
-        return $this->http->post("/payments/{$id}/receiveInCash", array());
+    public function confirmacao($id, array $dados){
+        return $this->http->post("/payments/{$id}/receiveInCash", $dados);
     }
     // Confirmação em dinheiro
-    public function dezconfirmacao($id, $dados){
-        return $this->http->post("/payments/{$id}/undoReceivedInCash", array());
+    public function dezconfirmacao($id){
+        return $this->http->post("/payments/{$id}/undoReceivedInCash");
     }
 
     // Deleta uma cobrança
